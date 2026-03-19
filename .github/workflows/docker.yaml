@@ -35,13 +35,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build base image
+      - name: Build and push base image
         uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile.useCurrentArch
-          push: false
-          load: true
+          push: true
           tags: ghcr.io/gryphon397/base:latest
           cache-from: type=gha,scope=base
           cache-to: type=gha,scope=base,mode=max
