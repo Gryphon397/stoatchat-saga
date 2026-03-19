@@ -39,7 +39,7 @@ jobs:
           file: Dockerfile.useCurrentArch
           push: false
           load: true
-          tags: ghcr.io/${{ github.repository_owner }}/base:latest
+          tags: ghcr.io/gryphon397/base:latest
           cache-from: type=gha,scope=base
           cache-to: type=gha,scope=base,mode=max
 
@@ -49,6 +49,6 @@ jobs:
           context: .
           file: crates/bonfire/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/events:latest
+          tags: ghcr.io/gryphon397/events:latest
           build-args: |
-            BASE_IMAGE=ghcr.io/${{ github.repository_owner }}/base:latest
+            BASE_IMAGE=ghcr.io/gryphon397/base:latest
